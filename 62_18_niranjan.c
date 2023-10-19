@@ -4,7 +4,7 @@
   Batch: C
   Name: Niranjan Kumar Yadav
   Date:11/09/2023
-  Description: progarmm id 17
+  Description: progarmm id 18
 */
 
 #include<stdio.h>
