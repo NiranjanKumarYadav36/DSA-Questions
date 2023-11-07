@@ -53,11 +53,13 @@ int binarysearch(int a[], int n, int d)
     l = 0;
     r = n - 1;
 
-    mid = l + (r - 1) / 2;
+    
 
     // start of while loop
     while (l <= r)
     {
+			
+		 mid =(l+r)/2;
         if (d == a[mid])
         {
             return mid;
