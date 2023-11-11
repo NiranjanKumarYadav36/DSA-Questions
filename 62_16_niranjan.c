@@ -6,145 +6,138 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 
-// strcture of a node of linked list
 struct node
 {
+    int data;
     struct node *next;
-    int info;
 };
 
-// to create memory for a node
-struct node *getnode()
+struct node *getnode(void)
 {
     return ((struct node *)malloc(sizeof(struct node)));
 }
 
-// to delete a node
 void freenode(struct node *p)
 {
     free(p);
 }
 
-// initializing the linked lsit
-struct node *list = NULL;
+struct node *head = NULL;
 
-
-
-// to insert an element at end of linked list
+// Function to push an element to the end of the linked list
 void push(int x)
 {
-    if (list == NULL)
-    {
-        struct node *newnode;
-        newnode = getnode();
-        newnode->info = x;
-        newnode->next = list;
-        list = newnode;
-    }
-
     struct node *nn, *temp;
 
     nn = getnode();
-    nn->info = x;
+    nn->data = x;
     nn->next = NULL;
-    temp = list;
 
-    while (temp->next != NULL)
+    if (head == NULL)
     {
-        temp = temp->next;
+        head = nn;
     }
+    else
+    {
+        temp = head;
 
-    temp->next = nn;
+        while (temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+
+        temp->next = nn;
+    }
 }
 
 
-// to delete last node
+// Function to pop an element from the end of the linked list
 void pop()
 {
-    if (list == NULL)
+    if (head == NULL)
     {
-        printf("Empty linked list");
+        printf("List is empty.\n");
+        return;
     }
 
-    if (list->next == NULL)
+    if (head->next == NULL)
     {
-        struct node *temp;
-        temp = list;
-        list = list->next;
+        // Only one element in the list
+        struct node *temp = head;
+        printf("Popped element: %d\n", temp->data);
+        head = temp->next;
         freenode(temp);
+        return;
     }
-    struct node *temp, *t2;
-    temp = list;
-    while (temp->next->next != NULL)
+
+    struct node *temp = head;
+    struct node *t2 = NULL;
+
+    while (temp->next != NULL)
     {
         t2 = temp;
         temp = temp->next;
     }
-    freenode(temp->next);
-    temp->next = NULL;
+
+    printf("Popped element: %d\n", temp->data);
+    freenode(temp);
+    t2->next = NULL;
 }
 
-// to display linked list
+// Function to display the linked list elements
 void display()
 {
-    if (list == NULL)
+    if (head == NULL)
     {
-        printf("Empty linked list");
-        
+        printf("List is empty.\n");
+        return;
     }
 
-    struct node *temp;
-    temp = list;
-    while (temp->next != NULL)
+    struct node *temp = head;
+    printf("Linked list elements:\n");
+    while (temp != NULL)
     {
-        printf("%d\n", temp->info);
+        printf("%d\n", temp->data);
         temp = temp->next;
     }
-    printf("%d", temp->info);
 }
 
-
-
-
-/*start of main method*/
-void main()
+// Main function to demonstrate linked list operations
+int main()
 {
-    int n, x;
+    int ch, n;
+
     while (1)
     {
+        printf("-----------Linked List Operations------------\n");
+        printf("1. Push\n");
+        printf("2. Pop\n");
+        printf("3. Traverse\n");
+        printf("4. Exit\n");
+        printf("Enter the option: ");
+        scanf("%d", &ch);
 
-        printf("--linked list implemententaion in stack--");
-        printf("\n1. Push");
-        printf("\n2. Pop");
-        printf("\n3. Traverse");
-        printf("\n4. Exit");
-        printf("\nenter the option no.: ");
-        scanf("%d", &n);
-
-        switch (n)
+        switch (ch)
         {
         case 1:
-            printf("enter the number you want to push into the list: ");
-            scanf("%d", &x);
-            push(x);
+            printf("Enter the value: ");
+            scanf("%d", &n);
+            push(n);
             break;
-
         case 2:
             pop();
             break;
-
         case 3:
             display();
             break;
-
         case 4:
-            exit(1);
-
+            exit(0);
         default:
-            printf("incorrect choice");
-        } // end of switch
-    }     // end of while
+            printf("Invalid option selected.\n");
+        }
+    }
 
-    printf("You got exit\n");
-} // end of main method
+    return 0;
+}
