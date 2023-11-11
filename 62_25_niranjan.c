@@ -1,78 +1,49 @@
-/*Roll no: 62
-  Batch: C
-  Name: Niranjan Kumar Yadav
-  Date:15/10/2023
-  Description: progarmm id 25
-*/
-
 #include <stdio.h>
 
-// Function prototype for binarysearch
-int binarysearch(int a[], int n, int d);
+int binary(int a[], int n, int d);
 
-// start of main method
-int main()
-{
-
+int main() {
     int a[100], n, data;
-
-    printf("enter no. of elements");
+    
+    printf("Warning: Enter elements in ascending or descending order only.\n");
+    printf("Enter the number of elements: ");
     scanf("%d", &n);
 
-    printf("warning:\n");
-    printf("enter element in acsending or descending order:\n");
-    for (int i = 0; i < n; i++)
-    {
-        printf("enter element %d ", i + 1);
+    printf("Enter elements:\n");
+    for (int i = 0; i < n; i++) {
+        printf("Enter element %d: ", i + 1);
         scanf("%d", &a[i]);
     }
 
-    // asking for which element to be  searched
-    printf("enter element to be searched\n");
+    printf("Enter element to be found: ");
     scanf("%d", &data);
 
-    // Checking if the returned index is not -1
-    int value = binarysearch(a, n, data);
+    int value = binary(a, n, data);
 
-    if (value != -1) // Check if the returned index is not -1
-    {
-        printf("%d is present in the array at index %d\n", data, value);
-    }
-    else
-    {
-        printf("%d is not found in the array\n", data);
+    if (value != -1) {
+        printf("%d is present at the location %d\n", data, value);
+    } else {
+        printf("Element not found\n");
     }
 
     return 0;
 }
 
-int binarysearch(int a[], int n, int d)
-{
-    int l, r, mid;
+int binary(int a[], int n, int d) {
+    int lb = 0;
+    int up = n - 1;
 
-    l = 0;
-    r = n - 1;
+    while (lb <= up) {
+        int mid = (lb + up) / 2;
 
-    
-
-    // start of while loop
-    while (l <= r)
-    {
-			
-		 mid =(l+r)/2;
-        if (d == a[mid])
-        {
+        if (a[mid] == d) {
             return mid;
-        }
-        else if (d < a[mid])
-        {
-            r = mid - 1;
-        }
-        else
-        {
-            l = mid + 1;
+        } else if (d < a[mid]) {
+            up = mid - 1;
+        } else {
+            lb = mid + 1;
         }
     }
-    // end of while loop
+    
     return -1;
 }
