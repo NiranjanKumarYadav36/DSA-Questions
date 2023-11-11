@@ -39,7 +39,7 @@
  - [Infix to Postfix expression](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_19_niranjan.c)               
  - [Expression Evaluation](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_18_niranjan.c)   
 
-                                                 [Tree]
+                                                [Tree]
    
 
  - [Binary Search](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_25_niranjan.c)
@@ -47,7 +47,7 @@
 
  - [Binary Search Tree](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_26_niranjan.c)           
 
-												    [Graph]
+												[Graph]
    
 
    
@@ -65,4 +65,5 @@
 
   
  
+
 
