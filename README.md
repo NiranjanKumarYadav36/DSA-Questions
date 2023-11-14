@@ -10,7 +10,7 @@
  - [Queue implementation Linked List](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_17_niranjan.c)
  - [Circular Queue](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_13_niranjan.c)
  - [Double ended Queue](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_14_niranjan.c)
- - [Linked List implementation Priority of Queue](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_15_niranjan.c)
+ - [Linked List implementation of Priority Queue](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_15_niranjan.c)
 
                                          [Sorting Techniques]   									  
    
