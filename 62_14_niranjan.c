@@ -96,7 +96,7 @@ void enqueue_at_rear(int a)
     }
     else
     {
-        rear = rear + 1;
+        rear = (rear + 1)%4;
         queue[rear] = a;
     }
 }
