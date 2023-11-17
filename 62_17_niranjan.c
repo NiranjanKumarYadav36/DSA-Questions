@@ -91,7 +91,7 @@ void display()
         printf("%d\n", temp->info);
         temp=temp->next;
     }
-    printf("%d", temp->info);
+   
 }
 
 /*start of main method*/
