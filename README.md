@@ -47,7 +47,7 @@
 
  - [Binary Search Tree](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_26_niranjan.c)           
 
-			                                    [Graph]
+			                                   [Graph]
    
 
    
