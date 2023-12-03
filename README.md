@@ -47,10 +47,10 @@
 
  - [Binary Search Tree](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_26_niranjan.c)           
 
-			                                  [Graph]
+			                                
+                                         [Graph]
    
 
-   
 
  - [Array implementation of Graph in BFS Traversal](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_27_niranjan.c)
   
