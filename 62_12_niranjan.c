@@ -9,128 +9,127 @@
 #include <stdlib.h>
 
 int queue[5];
-int front, rear; // front is used to delete elements from front of the queue
-                 // rear is used to insert elements from back of the queue
+int front, rear; // front is used to delete elements from the front of the queue
+                 // rear is used to insert elements from the back of the queue
 
-/*function prototype*/
+/* function prototype */
 
 void init();
 
-/*enuque method is used to insert elements*/
+/* enqueue method is used to insert elements */
 void enqueue(int);
 
-/*deque method is used to delete elements */
+/* dequeue method is used to delete elements */
 void dequeue();
 
-/*display method to traverse all elements*/
+/* display method to traverse all elements */
 void display();
 
-/*start of main method*/
-void main()
+/* start of main method */
+int main()
 {
-  int n, a;
-  while (1)
-  {
-    printf("differnts opertaion in Queue:");
-    printf("\n 1. insert elements in Queue");
-    printf("\n 2. delete elements from Queue");
-    printf("\n 3. traverse all elements");
-    printf("\n 4. exit");
-
-    printf("\n enter the option");
-    scanf("%d", &n);
-
-    switch (n)
+    int n, a;
+    init(); // initialize front and rear
+    while (1)
     {
-    case 1:
-      printf("enter the elements to insert in queue");
-      scanf("%d", &a);
-      enqueue(a);
-      break;
+        printf("different operations in Queue:\n");
+        printf("1. insert elements in Queue\n");
+        printf("2. delete elements from Queue\n");
+        printf("3. traverse all elements\n");
+        printf("4. exit\n");
 
-    case 2:
-      dequeue();
-      break;
+        printf("enter the option: ");
+        scanf("%d", &n);
 
-    case 3:
-      display();
-      break;
+        switch (n)
+        {
+        case 1:
+            printf("enter the element to insert in queue: ");
+            scanf("%d", &a);
+            enqueue(a);
+            break;
 
-    case 4:
-      exit(1);
+        case 2:
+            dequeue();
+            break;
 
-    default:
-      printf("wrong option selected");
-      break;
-    } // end of switch
-  }   // end of while
+        case 3:
+            display();
+            break;
+
+        case 4:
+            exit(0);
+
+        default:
+            printf("wrong option selected\n");
+            break;
+        } // end of switch
+    }     // end of while
+
+    return 0;
 } // end of main method
 
-/*initializing the default value of front and rear*/
+/* initializing the default value of front and rear */
 void init()
 {
-  front = -1;
-  rear = -1;
+    front = -1;
+    rear = -1;
 }
 
-/*enqueue method*/
+/* enqueue method */
 void enqueue(int a)
 {
-  if (rear = 4)
-  {
-    printf("queue is full\n");
-  }
-
-  else if (front == -1 && rear == -1)
-  {
-    front++;
-    rear++;
-    queue[rear] = a;
-  }
-
-  else
-  {
-    rear++;
-    queue[rear] = a;
-  }
+    if (rear == 4)
+    {
+        printf("queue is full\n");
+    }
+    else if (front == -1 && rear == -1)
+    {
+        front++;
+        rear++;
+        queue[rear] = a;
+    }
+    else
+    {
+        rear++;
+        queue[rear] = a;
+    }
 }
-/*end of enqueue method*/
+/* end of enqueue method */
 
-/*dequeue method*/
+/* dequeue method */
 void dequeue()
 {
-  if (front == -1 && rear == -1)
-  {
-    printf("queue is empty");
-  }
-
-  else if (front == rear)
-  {
-    front = rear = -1;
-  }
-
-  else
-  {
-    printf("deleted element is:", queue[front]);
-    front--;
-  }
+    if (front == -1 && rear == -1)
+    {
+        printf("queue is empty\n");
+    }
+    else if (front == rear)
+    {
+        printf("deleted element is: %d\n", queue[front]);
+        front = rear = -1;
+    }
+    else
+    {
+        printf("deleted element is: %d\n", queue[front]);
+        front++;
+    }
 }
-/*end of dequeue method*/
+/* end of dequeue method */
 
-/*display method*/
+/* display method */
 void display()
 {
-  if (front == -1 && rear == -1)
-  {
-    printf("queue is empty");
-  }
-
-  else
-  {
-    for (int i = front; i <= rear; i++)
+    if (front == -1 && rear == -1)
     {
-      printf("element is %d", queue[i]);
+        printf("queue is empty\n");
     }
-  }
+    else
+    {
+        for (int i = front; i <= rear; i++)
+        {
+            printf("element is %d\n", queue[i]);
+        }
+    }
 }
-/*end of display method*/
+/* end of display method */
