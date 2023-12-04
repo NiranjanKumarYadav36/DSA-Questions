@@ -76,9 +76,9 @@ void init()
 
 void enqueue(int a)
 {
-    if (front = (rear + 1) % 5)
+    if (front == (rear + 1) % 5)
     {
-        printf("queue is full:");
+        printf("Queue is full\n");
     }
     else if (front == -1 && rear == -1)
     {
