@@ -1,3 +1,10 @@
+/*Roll no: 62
+  Batch: C
+  Name: Niranjan Kumar Yadav
+  Date:10/09/2023
+  Description: progarmm id 26
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
