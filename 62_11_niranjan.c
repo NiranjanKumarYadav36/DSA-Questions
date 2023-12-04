@@ -2,7 +2,7 @@
   Batch: C
   Name: Niranjan Kumar Yadav
   Date:26/08/2023
-  Description: progarmm id 12
+  Description: progarmm id 11
 */
 
 #include <stdio.h>
@@ -11,37 +11,37 @@
 int stack[5];
 int top = -1; // stack initialization condition
 
-// Function prototype
+// Function prototypes
 
-/*push method is use to insert elements into satck */
+/* push method is used to insert elements into stack */
 void push(int);
 
-/*pop method is used to delete elemenst from stack*/
+/* pop method is used to delete elements from stack */
 void pop();
 
-/*dispaly method is used to traverse and print all the elements from the stack*/
+/* display method is used to traverse and print all the elements from the stack */
 void display();
 
-/*main method*/
-void main()
+/* main method */
+int main()
 {
     int n; // used to store user choice
     int a;
 
     while (1)
     {
-        printf("differnts opertaion in stack:");
-        printf("\n 1. insert elemenst in stack");
-        printf("\n 2. delete elemenst from stack");
-        printf("\n 3. traverse all elemenst");
-        printf("\n 4. exit");
+        printf("------different operations in stack------\n");
+        printf("1. insert elements in stack\n");
+        printf("2. delete elements from stack\n");
+        printf("3. traverse all elements\n");
+        printf("4. exit\n");
 
-        printf("\n enter the option");
+        printf("enter the option: ");
         scanf("%d", &n);
         switch (n)
         {
         case 1:
-            printf("eneter the elements to insert into stack:");
+            printf("enter the element to insert into stack: ");
             scanf("%d", &a);
             push(a);
             break;
@@ -55,64 +55,74 @@ void main()
             break;
 
         case 4:
-            exit(1);
+            exit(0);
 
         default:
-            printf("wrong option selcted");
+            printf("wrong option selected\n");
             break;
         } // end of switch
     }     // end of while
-}
-/*end of main method*/
 
-/*push method*/
+    return 0;
+}
+/* end of main method */
+
+/* push method */
 void push(int a)
 {
     if (top == 4)
     {
-        printf("stack is full");
+        printf("stack is full\n");
     }
     else
     {
         top++;
         stack[top] = a;
+        display();
+        printf("\n");
     }
 }
-/*end of push method*/
+/* end of push method */
 
-/*pop method*/
-
+/* pop method */
 void pop()
 {
     if (top == -1)
     {
-        printf("stack is empty");
+        printf("stack is empty\n");
     }
-
     else
     {
         int e = stack[top];
         top--;
-        printf("/n %d element popped out of the satck", e);
+        printf("%d element popped out of the stack\n", e);
+        display();
+        printf("\n");
     }
 }
-/*end of pop method*/
+/* end of pop method */
 
-/*dispaly method*/
-
+/* display method */
 void display()
-
 {
     if (top == -1)
     {
-        printf("satck is empty");
+        printf("stack is empty\n");
     }
     else
     {
         for (int i = top; i >= 0; i--)
         {
-            printf("%d", stack[top]);
+            printf("%d\n", stack[i]);
         }
     }
 }
-/*end of display method*/
+/* end of display method */
+
+
+
+
+           
+
+
+
