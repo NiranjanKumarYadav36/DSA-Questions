@@ -1,154 +1,210 @@
-/* Implementation of binary search tree with its Operations*/
-
 #include <stdio.h>
+#include <stdlib.h>
 
-// Definition of a BST node
-struct Node {
+struct TN
+{
     int data;
-    struct Node* left;
-    struct Node* right;
+    struct TN *l;
+    struct TN *r;
 };
 
-// Function to create a new node
-struct Node* createNode(int value) {
-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-    newNode->data = value;
-    newNode->left = newNode->right = NULL;
-    return newNode;
+struct TN *getnode(int value)
+{
+    struct TN *nn = ((struct TN *)malloc(sizeof(struct TN)));
+    nn->data = value;
+    nn->l = nn->r = NULL;
+    return nn;
 }
 
-// Function to insert a node into the BST
-struct Node* insert(struct Node* root, int value) {
-    if (root == NULL) {
-        return createNode(value);
+struct TN *insert(struct TN *root, int value)
+{
+    if (root == NULL)
+    {
+        return getnode(value);
     }
 
-    if (value < root->data) {
-        root->left = insert(root->left, value);
-    } else if (value > root->data) {
-        root->right = insert(root->right, value);
+    if (value < root->data)
+    {
+        root->l = insert(root->l, value);
+    }
+    if (value > root->data)
+    {
+        root->r = insert(root->r, value);
     }
 
     return root;
 }
 
-// Function to search for a value in the BST
-struct Node* search(struct Node* root, int value) {
-    if (root == NULL || root->data == value) {
+struct TN *findMinNode(struct TN *node)
+{
+    while (node->l != NULL)
+    {
+        node = node->l;
+    }
+    return node;
+}
+
+struct TN *delete(struct TN *root, int value)
+{
+    if (root == NULL)
+    {
         return root;
     }
 
-    if (value < root->data) {
-        return search(root->left, value);
+    if (value < root->data)
+    {
+        root->l = delete (root->l, value);
     }
-
-    return search(root->right, value);
-}
-
-// Function to find the minimum value node in the BST
-struct Node* findMinNode(struct Node* root) {
-    struct Node* current = root;
-    while (current->left != NULL) {
-        current = current->left;
+    else if (value > root->data)
+    {
+        root->r = delete (root->r, value);
     }
-    return current;
-}
-
-// Function to delete a node from the BST
-struct Node* deleteNode(struct Node* root, int value) {
-    if (root == NULL) {
-        return root;
-    }
-
-    if (value < root->data) {
-        root->left = deleteNode(root->left, value);
-    } else if (value > root->data) {
-        root->right = deleteNode(root->right, value);
-    } else {
-        if (root->left == NULL) {
-            struct Node* temp = root->right;
+    else
+    {
+        if (root->l == NULL)
+        {
+            struct TN *temp = root->r;
             free(root);
             return temp;
-        } else if (root->right == NULL) {
-            struct Node* temp = root->left;
+        }
+        else if (root->r == NULL)
+        {
+            struct TN *temp = root->l;
             free(root);
             return temp;
         }
 
-        struct Node* temp = findMinNode(root->right);
+        struct TN *temp = findMinNode(root->r);
         root->data = temp->data;
-        root->right = deleteNode(root->right, temp->data);
+        root->r = delete (root->r, temp->data);
     }
 
     return root;
 }
 
-// Function to count the total number of nodes in the BST
-int countNodes(struct Node* root) {
-    if (root == NULL) {
-        return 0;
+struct TN *search(struct TN *root, int value)
+{
+    if (root == NULL || root == value)
+    {
+        return root;
     }
-    return 1 + countNodes(root->left) + countNodes(root->right);
+    if (value < root->data)
+    {
+        return search(root->l, value);
+    }
+    if (value > root->data)
+    {
+        return search(root->r, value);
+    }
 }
 
-// Function to count the total number of leaf nodes in the BST
-int countLeafNodes(struct Node* root) {
-    if (root == NULL) {
-        return 0;
+void inorder(struct TN *root)
+{
+    if (root != NULL)
+    {
+        inorder(root->l);
+        printf("%d ", root->data);
+        inorder(root->r);
     }
-    if (root->left == NULL && root->right == NULL) {
-        return 1;
+    else
+    {
+        printf("empty tree \n");
     }
-    return countLeafNodes(root->left) + countLeafNodes(root->right);
 }
 
-int main() {
-    struct Node* root = NULL;
-    int choice, value;
+void postorder(struct TN *root)
+{
+    if (root != NULL)
+    {
+        postorder(root->l);
+        postorder(root->r);
+        printf("%d ", root->data);
+    }
+    else
+    {
+        printf("empty tree \n");
+    }
+}
 
-    while (1) {
-        printf("\nBinary Search Tree Operations:\n");
-        printf("1. Insert\n");
-        printf("2. Search\n");
-        printf("3. Delete\n");
-        printf("4. Count Nodes\n");
-        printf("5. Count Leaf Nodes\n");
-        printf("6. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
+void preorder(struct TN *root)
+{
+    if (root != NULL)
+    {
+        printf("%d ", root->data);
+        preorder(root->l);
+        preorder(root->r);
+    }
+    else
+    {
+        printf("empty tree \n");
+    }
+}
 
-        switch (choice) {
-            case 1:
-                printf("Enter value to insert: ");
-                scanf("%d", &value);
-                root = insert(root, value);
-                break;
-            case 2:
-                printf("Enter value to search: ");
-                scanf("%d", &value);
-                if (search(root, value)) {
-                    printf("Value found in the BST.\n");
-                } else {
-                    printf("Value not found in the BST.\n");
-                }
-                break;
-            case 3:
-                printf("Enter value to delete: ");
-                scanf("%d", &value);
-                root = deleteNode(root, value);
-                break;
-            case 4:
-                printf("Total number of nodes: %d\n", countNodes(root));
-                break;
-            case 5:
-                printf("Total number of leaf nodes: %d\n", countLeafNodes(root));
-                break;
-            case 6:
-                exit(0);
-            default:
-                printf("Invalid choice. Please try again.\n");
+int main()
+{
+    struct TN *root = NULL;
+    struct TN *result;
+    int ch, n;
+
+    while (1)
+    {
+
+        printf("----welcome to bst:----\n");
+        printf("1.insert node\n");
+        printf("2. Deletion of a node\n");
+        printf("3.search node\n");
+        printf("4.inorder\n");
+        printf("5.postorder\n");
+        printf("6.preorder\n");
+
+        printf("enter your choice -> ");
+        scanf("%d", &ch);
+
+        switch (ch)
+        {
+        case 1:
+            printf("enter the value to insert: ");
+            scanf("%d", &n);
+            root = insert(root, n);
+            break;
+        case 2:
+            printf("Enter value to delete: ");
+            scanf("%d", &n);
+            root = delete (root, n);
+            break;
+
+        case 3:
+            printf("enter the value to search: ");
+            scanf("%d", &n);
+            result = search(root, n);
+            if (result != NULL)
+            {
+                printf("%d found in the tree", n);
+            }
+            else
+            {
+                printf("%d not found", n);
+            }
+            break;
+        case 4:
+            printf("inorder traversal:-> ");
+            inorder(root);
+            printf("\n");
+            break;
+        case 5:
+            printf("preorder traversal:-> ");
+            postorder(root);
+            printf("\n");
+            break;
+        case 6:
+            printf("postorder traversal:-> ");
+            preorder(root);
+            printf("\n");
+            break;
+
+        default:
+            printf("error try again\n");
+            break;
         }
     }
-
-    return 0;
 }
