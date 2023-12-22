@@ -1,3 +1,4 @@
+
 ## DSA QUESTIONS
  
                                            [Stack Operation]
@@ -12,8 +13,8 @@
  - [Double ended Queue](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_14_niranjan.c)
  - [Linked List implementation of Priority Queue](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_15_niranjan.c)
 
-                                         [Sorting Techniques]   									  
-   
+
+                                         [Sorting Techniques]
 
  - [Bubble Sort](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_21_niranjan.c)
 
@@ -28,18 +29,21 @@
 
  - [Merge Sort](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_23_niranjan.c)
 
-                                        [Linked List Operation]
+
+                                       [Linked List Operation]
    
 
  - [Implementation of Single Linked List](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_15_niranjan.c)
+
    
-                                           [Infix and Postfix]
+                                         [Infix and Postfix]
    
 
  - [Infix to Postfix expression](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_19_niranjan.c)               
  - [Expression Evaluation](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_18_niranjan.c)   
 
-                                                [Tree]
+
+                                               [Tree]
    
 
  - [Binary Search](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_25_niranjan.c)
@@ -48,7 +52,7 @@
  - [Binary Search Tree](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_26_niranjan.c)           
 
 			                                
-                                          [Graph]
+                                               [Graph]
    
 
 
@@ -60,9 +64,3 @@
    										  									  
 										  
 										           
-
-
-
-  
- 
-
