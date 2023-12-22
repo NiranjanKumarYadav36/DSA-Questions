@@ -13,6 +13,7 @@
  - [Linked List implementation of Priority Queue](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_15_niranjan.c)
 
 
+
                                          [Sorting Techniques]
 
  - [Bubble Sort](https://github.com/NiranjanKumarYadav36/DSA-Questions/blob/main/62_21_niranjan.c)
